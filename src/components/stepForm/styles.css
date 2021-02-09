@@ -1,0 +1,12 @@
+.main_h1{
+    font-family: GothamPro-Bold;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.main_h1::after{
+    content: "";
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: #f9ce54;
+}
