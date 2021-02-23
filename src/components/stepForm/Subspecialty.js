@@ -8,12 +8,14 @@ import mas_reg from './mas_reg.css';
 
   
 
-export const Subspecialty = ({ formData, setForm, navigation }) => {
+export const Subspecialty = ({ formData, setForm, navigation, specializations }) => {
 
 
     const { address, city, state, zip } = formData;
     return (
        <Container maxWidth="xs">
+           <h3>Выбрано: </h3>
+           <div>{specializations.join()}</div>
            <h3 className="main_h1">Услуги</h3>
 
            <TextField 
