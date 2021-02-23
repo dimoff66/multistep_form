@@ -33,21 +33,29 @@ export const MultiStepForm = () => {
         initialStep:0,
     });
 
-const props = {formData, setForm, navigation}
+    const [specializations, changeSpecialization] = useState([])
+    const toggleSpecialization = spec => {
+        if (specializations.includes(spec)) {
+            changeSpecialization(specializations.filter(v => v !== spec))
+        } else {
+            changeSpecialization([...specializations, spec])
+        }
+    } 
+
+    const props = {formData, setForm, navigation}
+    const specProps = { specializations, toggleSpecialization }
 
     switch(step.id) {
         case 'specialization':
-            return <Specialization { ...props} />;
+            return <Specialization { ...props} {...specProps} />;
         case 'subspecialty':
-            return <Subspecialty { ...props} />;
+            return <Subspecialty { ...props} {...specProps} />;
         case 'contact':
             return <Contact { ...props} />;
         case 'review':
             return <Review { ...props} />;
         case 'submit':
             return <Submit { ...props} />;
-        
-
     }
 
 console.log(step);
